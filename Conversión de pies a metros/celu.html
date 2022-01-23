@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Conversor feet/mtr</title>
+	<style type="text/css">
+		body{
+	background-color: #191919;
+}
+
+
+h1,h2,p{
+	font-family:'Dongle', sans-serif;
+
+}
+
+h1{
+	margin-left: 12px;
+	color: #C84B31;
+}
+
+h2{
+	font-size: 25px;
+	margin-left: 15px;
+
+}
+
+p{
+	margin-top: -30px;
+	font-size: 23px;
+	margin-left: 15px;
+	color: #ECDBBA;
+}
+
+input{
+	margin-left: 15px;
+	height: 20px;
+	width: 250px;
+	border: none;
+
+}
+
+.contenedorMetros{
+	display: block;
+	width: auto;
+	height: auto;
+	border: 5px solid;
+	background-color: #2D4263;
+}
+
+.contenedorPies{
+	margin-top: 15px;
+	width: auto;
+	height: auto;
+	border: 5px groove black;
+	background-color: #2D4263;
+}
+
+.contenedorPulgadas{
+	margin-top: 15px;
+	width: auto;
+	height: auto;
+	border: 5px solid;
+	background-color: #2D4263;
+}
+
+.contenedorCentimetros{
+	margin-top: 15px;
+	width: auto;
+	height: auto;
+	border: 5px solid;
+	background-color: #2D4263;
+
+}
+
+.enviar,.enviar2,.enviar3,.enviar4{
+	border: none;
+	background-color: white;
+	font-family: Arial;
+	margin-left: 10px;
+	width: 80px;
+	height: 30px;
+}
+
+.limpiar,.limpiar2,.limpiar3,.limpiar4{
+border: none;
+	background-color: white;
+	font-family: Arial;
+	margin-left: 10px;
+	width: 80px;
+	height: 30px;
+}
+
+.limpiarTodo{
+	font-family: sans-serif;
+	font-size: 25px;
+	display: block;
+	margin-top: 10px;
+	width: 100%;
+	height: 120px;
+	background-color: #ECDBBA;
+	border: none;
+
+}
+
+
+.limpiarTodo:hover{
+	background-color: #D1C5AD ;
+}
+	</style>
+</head>
+<body>
+
+<div class="contenedorMetros">
+	<h1>Ingrese en pies:</h1>
+	<input type="number" class="input" placeholder="Ingresar numero en fts">
+	<button class="enviar">Submit</button>
+	<h2>En metros son:</h2>
+	<p class="resultado"></p>
+</div>
+
+<div class="contenedorPies">
+	<h1>Ingrese en metros:</h1>
+	<input type="number" class="input2" placeholder="Ingresar numero en metros">
+	<button class="enviar2">Submit</button>
+	<h2>En pies son:</h2>
+	<p class="resultado2"></p>
+</div>
+
+<div class="contenedorPulgadas">
+	<h1>Ingrese en Centimetros:</h1>
+	<input type="number" class="input3" placeholder="Ingresar numero en fts">
+	<button class="enviar3">Submit</button>
+	<h2>En pulgadas son:</h2>
+	<p class="resultado3"></p>
+</div>
+
+<div class="contenedorCentimetros">
+	<h1>Ingrese en pulgadas:</h1>
+	<input type="number" class="input4" placeholder="Ingresar numero en metros">
+	<button class="enviar4">Submit</button>
+	<h2>En centimetros son:</h2>
+	<p class="resultado4"></p>
+</div>
+
+<script type="text/javascript">
+let contenedorMetros = document.querySelector(".contenedorMetros");
+let input = document.querySelector(".input");
+let submit = document.querySelector(".enviar");
+let visual = document.querySelector(".resultado");
+let limpiar = document.querySelector(".limpiar");
+
+let contenedorPies = document.querySelector(".contenedorPies");
+let inputPies = document.querySelector(".input2");
+let submitPies = document.querySelector(".enviar2");
+let visualPies = document.querySelector(".resultado2");
+let limpiarPies = document.querySelector(".limpiar2");
+
+let contenedorPulgadas = document.querySelector(".contenedorPulgadas");
+let inputPulgadas = document.querySelector(".input3");
+let submitPulgadas = document.querySelector(".enviar3");
+let visualPulgadas = document.querySelector(".resultado3");
+let limpiarPulgadas = document.querySelector(".limpiar3")
+
+let contenedorCentimetros = document.querySelector(".contenedorCentrimetros");
+let inputCentimetros = document.querySelector(".input4");
+let submitCentimetros = document.querySelector(".enviar4");
+let visualCentimetros = document.querySelector(".resultado4");
+let limpiarCentimetros = document.querySelector(".limpiar4");
+
+let limpiezaBoton = document.querySelector(".limpiarTodo");
+
+function cuentaAMetros (){
+	let valor = input.value;
+	let cuentaPies = 3.28;
+	let resultado = valor / cuentaPies;
+	visual.innerHTML = resultado.toFixed(2);
+};
+
+function cuentaAPies(){
+	let valorPies = inputPies.value;
+	let cuentaMetros = 3.28;
+	let resultadoMetros = valorPies * cuentaMetros;
+	visualPies.innerHTML = resultadoMetros.toFixed(2);	
+};
+
+function cuentaAPulgadas (){
+	let valorPulgadas = inputPulgadas.value;
+	let cuentaCentimetros = 2.54;
+	let resultadoPulgadas = valorPulgadas / cuentaCentimetros;
+	visualPulgadas.innerHTML = resultadoPulgadas.toFixed(2);
+};
+
+function cuentaACentimetros(){
+	let valorCentimetros = inputCentimetros.value;
+	let cuentaPulgadas = 2.54;
+	let resultadoCentimetros = valorCentimetros * cuentaPulgadas;
+	visualCentimetros.innerHTML = resultadoCentimetros.toFixed(2);	
+};
+
+function limpiezaTotal(){
+	inputPies.value = ''
+	inputCentimetros.value = ''
+	inputPulgadas.value = ''
+	input.value = ''
+	visual.innerHTML = ''
+	visualPies.innerHTML = ''
+	visualCentimetros.innerHTML = ''
+	visualPulgadas.innerHTML = '' 
+};
+
+
+submit.addEventListener("click",()=>cuentaAMetros());
+submitPies.addEventListener("click",()=>cuentaAPies());
+submitPulgadas.addEventListener("click",()=>cuentaAPulgadas());
+submitCentimetros.addEventListener("click",()=>cuentaACentimetros());
+
+limpiezaBoton.addEventListener("click",()=>limpiezaTotal());
+
+limpiar.addEventListener("click",()=>{
+	visual.innerHTML = ''
+	input.value = ''
+	});
+
+limpiarPies.addEventListener("click",()=>{
+	visualPies.innerHTML = ''
+	inputPies.value = ''
+	});
+
+limpiarPulgadas.addEventListener("click",()=>{
+	visualPulgadas.innerHTML = ''
+	inputPulgadas.value = ''
+	});
+
+limpiarCentimetros.addEventListener("click",()=>{
+	visualCentimetros.innerHTML = ''
+	inputCentimetros.value = ''
+	});
+</script>
+</body>
+</html>
